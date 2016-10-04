@@ -42,8 +42,9 @@ def start():
     print "Ratings Dimension (train){}, (test){}".format(train_ratings_df.shape, test_ratings_df.shape)
 
     # Content based recommendation engine
-    model_cbr.train_CBR(user_ratings_df=ratings_df, movies_df=movies_df)
+    model_cbr.train_cbr(user_ratings_df=train_ratings_df, movies_df=movies_df)
     model_cbr.predict(test_ratings_df)
+
 
 if __name__ == '__main__':
     start()
