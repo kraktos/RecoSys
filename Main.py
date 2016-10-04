@@ -3,7 +3,7 @@ implement a basic recommender system
 """
 import pandas as pd
 from sklearn.cross_validation import train_test_split
-
+import CBR.Model_Creator as model_cbr
 
 # define the inception of the code
 def start():
@@ -41,7 +41,9 @@ def start():
 
     print "Ratings Dimension (train){}, (test){}".format(train_ratings_df.shape, test_ratings_df.shape)
 
-    #
+    # Content based recommendation engine
+    model_cbr.train_CBR(user_ratings_df=ratings_df, movies_df=movies_df)
+    model_cbr.predict(test_ratings_df)
 
 if __name__ == '__main__':
     start()
